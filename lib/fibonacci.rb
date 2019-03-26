@@ -5,8 +5,12 @@
 # ....
 # e.g. 6th fibonacci number is 8
 
-# Time complexity: ?
-# Space complexity: ?
+# Time complexity: O(n) where n is the nth fib number
+# Space complexity: O(1)
 def fibonacci(n)
-  raise NotImplementedError
+  raise ArgumentError.new if !n || n < 0
+  return n if n < 2
+  fib, prev_fib = 1, 1
+  (n - 2).times { fib, prev_fib = (fib + prev_fib), fib }
+  return fib
 end
